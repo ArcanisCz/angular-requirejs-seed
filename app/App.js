@@ -4,7 +4,8 @@ define([
     "./Controllers",
     "./Services",
     "./Components",
-    "less!./css/bootstrap"
+    "less!./css/bootstrap",
+    "less!./css/bootstrap-theme"
 ], function (angular, uiBootstrap, Controllers, Services, Components) {
     return angular.module('euiv', [
         "ngRoute",
