@@ -17,13 +17,15 @@ requirejs.config({
         less: "./lib/require-less/less",
         lessc: "./lib/require-less/lessc",
         "less-builder": "./lib/require-less/less-builder",
-        normalize: "./lib/require-less/normalize"
+        normalize: "./lib/require-less/normalize",
+        uiBootstrap: "./lib/ui-bootstrap/ui-bootstrap-tpls-0.11.0"
     },
     shim: {
         'angular': {'exports': 'angular'},
         'angularRoute': ['angular'],
         'angularSegment': ['angular'],
-        'angularView': ['angular']
+        'angularView': ['angular'],
+        'uiBootstrap': ["angular"]
     },
     less: {
         rootpath: "./",
