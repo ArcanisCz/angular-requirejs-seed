@@ -1,15 +1,18 @@
 define([
     "angular",
-    "async"
-], function (angular, async) {
+    "async",
+    "i18n!nls/texts"
+], function (angular, async, texts) {
+    console.log("texts", texts);
     return angular.module('MainController', []).controller('MainController', ['$scope', "$http", "europaSave", function ($scope, $http, europaSave) {
         $scope.save = {
             date: "",
             player: "",
             countries: {}
         };
+        $scope.texts = texts;
 
-        europaSave.load("aaa", function (data) {
+        europaSave.load("TODO", function (data) {
             console.log(data);
             $scope.save.date = data.date;
             $scope.save.player = data.player;

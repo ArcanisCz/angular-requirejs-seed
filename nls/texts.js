@@ -1,5 +1,5 @@
 define({
     "root": {
-        hello: "Hello NLS!"
+        hello: "Localized Hello!"
     }
 })
