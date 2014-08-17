@@ -3,7 +3,6 @@ define([
     "async",
     "i18n!nls/texts"
 ], function (angular, async, texts) {
-    console.log("texts", texts);
     return angular.module('MainController', []).controller('MainController', ['$scope', "$http", "europaSave", function ($scope, $http, europaSave) {
         $scope.save = {
             date: "",
