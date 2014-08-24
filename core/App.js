@@ -1,6 +1,6 @@
 define([
     'angular',
-    "app/Includes"
+    "app/AngularModules"
 ], function (angular, Includes) {
     var app = angular.module('euiv', [
         "ngRoute",

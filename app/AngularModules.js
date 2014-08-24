@@ -1,5 +1,5 @@
 define([
-    "uiBootstrap"
+    "uiBootstrap",
 ], function () {
     return [
         "ui.bootstrap"
