@@ -1,19 +1,12 @@
 define([
     'angular',
-    "uiBootstrap",
-    "./Controllers",
-    "./Services",
-    "./Components",
-    "less!./css/bootstrap",
-    "less!./css/bootstrap-theme"
-], function (angular, uiBootstrap, Controllers, Services, Components) {
-    return angular.module('euiv', [
+    "uiBootstrap"
+], function (angular, uiBootstrap) {
+    var app = angular.module('euiv', [
         "ngRoute",
         'route-segment',
         'view-segment',
-        "ui.bootstrap",
-        Controllers.name,
-        Services.name,
-        Components.name
+        "ui.bootstrap"
     ]);
+    return app;
 });

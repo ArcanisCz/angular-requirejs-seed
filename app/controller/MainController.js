@@ -1,9 +1,10 @@
 define([
-    "angular",
+    "app/Factory",
+    "i18n!nls/texts",
     "async",
-    "i18n!nls/texts"
-], function (angular, async, texts) {
-    return angular.module('MainController', []).controller('MainController', ['$scope', "$http", "europaSave", function ($scope, $http, europaSave) {
+    "../service/EuropaSaveService"
+], function (factory, texts, async) {
+    return factory.controller('MainController', ['$scope', "$http", "europaSave", function ($scope, $http, europaSave) {
         $scope.save = {
             date: "",
             player: "",

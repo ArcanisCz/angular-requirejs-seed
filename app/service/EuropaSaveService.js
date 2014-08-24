@@ -1,5 +1,7 @@
-define([], function () {
-    return  ["$http", function ($http) {
+define([
+    "app/Factory"
+], function (factory) {
+    return  factory.service("europaSave", ["$http", function ($http) {
         function load(saveLocation, done) {
             $http({
                 method: "GET",
@@ -13,5 +15,5 @@ define([], function () {
         return {
             load: load
         };
-    }]
+    }])
 });

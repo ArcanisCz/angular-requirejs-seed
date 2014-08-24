@@ -1,9 +1,9 @@
 define([
-    "angular",
+    "app/Factory",
     "text!./CountryFlagComponent.html",
     "less!./CountryFlagComponent.less"
-], function (angular, template) {
-    return angular.module('CountryFlagComponent', []).directive("countryFlag", [function () {
+], function (factory, template) {
+    return factory.directive("countryFlag", [function () {
         return {
             restrict: "E",
             template: template,

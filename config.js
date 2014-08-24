@@ -28,7 +28,6 @@ requirejs.config({
         'uiBootstrap': ["angular"]
     },
     less: {
-        rootpath: "./",
         env: "development"
     }
 });
