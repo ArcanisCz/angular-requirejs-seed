@@ -1,19 +1,8 @@
 define([
-    'angular',
     "uiBootstrap",
-    "./Controllers",
-    "./Services",
-    "./Components",
-    "less!./css/bootstrap",
-    "less!./css/bootstrap-theme"
-], function (angular, uiBootstrap, Controllers, Services, Components) {
-    return angular.module('euiv', [
-        "ngRoute",
-        'route-segment',
-        'view-segment',
-        "ui.bootstrap",
-        Controllers.name,
-        Services.name,
-        Components.name
-    ]);
+    "less!app/less/bootstrap",
+    "less!app/less/bootstrap-theme"
+], function () {
+    //File used to do some custom action before angular app bootstraping. Such as including custom things...
+    return {}; //return value not used by anything
 });
