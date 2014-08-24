@@ -23,11 +23,23 @@ define([
             "less-builder": "./lib/require-less/less-builder",
             normalize: "./lib/require-less/normalize"
         },
+
         shim: {
-            'angular': {'exports': 'angular'},
-            'angularRoute': ['angular'],
-            'angularSegment': ['angular'],
-            'angularView': ['angular']
+            'angular': {
+                exports: 'angular'
+            },
+            'angularRoute': {
+                angularModuleName: "ngRoute",
+                deps: ['angular']
+            },
+            'angularSegment': {
+                angularModuleName: "route-segment",
+                deps: ['angular']
+            },
+            'angularView': {
+                angularModuleName: "view-segment",
+                deps: ['angular']
+            }
         },
         less: {
             env: "development"
@@ -35,6 +47,7 @@ define([
     }, config);
 
     requirejs.config(obj);
+    return obj;
 
     //we do not want load any frameworks with extend() function here (jquery, angular, ...). So we are providing
     // some basic extend here, based on http://andrewdupont.net/2009/08/28/deep-extending-objects-in-javascript/

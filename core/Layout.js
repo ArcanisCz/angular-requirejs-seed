@@ -1,5 +1,5 @@
 define([
-    "app/AppLayout"
+    "app/Routes"
 ], function (AppLayout) {
 
     function init(app) {

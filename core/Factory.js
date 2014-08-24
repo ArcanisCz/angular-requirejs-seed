@@ -1,6 +1,6 @@
 define([
     'angular',
-    "core/App"
+    "core/MainModule"
 ], function (angular, app) {
 
     function createController(name, def) {
@@ -19,9 +19,9 @@ define([
     }
 
     function createInheritance(name, scope) {
-        var i = angular.injector(["ng", app.name]);
-        i.invoke(["$controller", function ($controller) {
-            $controller(name, {$scope: scope});
+        var injector = angular.injector([app.name]);
+        injector.invoke(["$controller", function (controller) {
+            controller(name, {$scope: scope});
         }]);
     }
 
