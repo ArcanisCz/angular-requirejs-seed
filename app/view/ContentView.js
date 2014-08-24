@@ -3,6 +3,7 @@ define([
     "less!./ContentView.less"
 ], function (template) {
     return {
+        default: true,
         template: template
     }
 });

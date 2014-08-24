@@ -6,8 +6,8 @@ define([
         paths: {
             app: './app',
             nls: "./nls",
+            core: "./core",
             Factory: "./core/Factory",
-            App: "./core/App",
 
             //libs
             text: "./lib/require/text",
