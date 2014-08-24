@@ -1,14 +1,20 @@
 define([
     "Factory",
-    "app/controller/AbstractController",
+    "app/controller/BaseController",
     "app/controller/AbstractController1",
     "app/service/EuropaSaveService"
-], function (factory, AbstractController, AbstractController1, EuropaSaveService) {
+], function (factory, BaseController, AbstractController1, EuropaSaveService) {
     return factory.controller('MainController', ['$scope', "$http", EuropaSaveService, function ($scope, $http, $europaSave) {
-        factory.inheritController(AbstractController, $scope);
+        factory.inheritController(BaseController, $scope);
         factory.inheritController(AbstractController1, $scope);
 
+        $scope.setMsgNS("view.MainController");
+        $scope.parentAaa();
+        initSaveModel($scope, $europaSave);
 
+    }]);
+
+    function initSaveModel($scope, $europaSave) {
         $scope.save = {
             date: "",
             player: "",
@@ -21,8 +27,5 @@ define([
             $scope.save.player = data.player;
             $scope.save.countries = data.countries;
         });
-
-        $scope.parentAaa();
-        $scope.parentAaa1();
-    }]);
+    }
 });
