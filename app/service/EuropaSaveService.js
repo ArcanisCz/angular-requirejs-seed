@@ -1,11 +1,11 @@
 define([
-    "app/Factory"
+    "Factory"
 ], function (factory) {
     return  factory.service("europaSave", ["$http", function ($http) {
         function load(saveLocation, done) {
             $http({
                 method: "GET",
-                url: "./dummy.json",
+                url: "./static/dummy.json",
                 data: "JSON"
             })
                 .success(done)

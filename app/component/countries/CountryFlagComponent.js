@@ -1,5 +1,5 @@
 define([
-    "app/Factory",
+    "Factory",
     "text!./CountryFlagComponent.html",
     "less!./CountryFlagComponent.less"
 ], function (factory, template) {

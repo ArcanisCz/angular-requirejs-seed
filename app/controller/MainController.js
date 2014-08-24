@@ -1,5 +1,5 @@
 define([
-    "app/Factory",
+    "Factory",
     "i18n!nls/texts",
     "async",
     "../service/EuropaSaveService"

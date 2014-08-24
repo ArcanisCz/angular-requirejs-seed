@@ -1,14 +1,12 @@
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="static/css/style.css"/>
     <script src="lib/require/require.js"></script>
     <script type="text/javascript">
-        require(['./config'], function (config) {
-            require(['main']);
+        require(['./core/config'], function (config) {
+            require(['core/main']);
         });
     </script>
 </head>
-
 <body app-view-segment="0">
 </body>
 </html>

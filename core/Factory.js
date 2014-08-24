@@ -1,6 +1,6 @@
 define([
     'angular',
-    "app/App"
+    "App"
 ], function (angular, app) {
 
     function createController(name, def) {
