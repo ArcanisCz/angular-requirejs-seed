@@ -1,7 +1,7 @@
 require([
     "angular",
     "App",
-    "app/AppLayout",
+    "app/Layout",
     "angularRoute",
     "angularSegment",
     "angularView"

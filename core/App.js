@@ -1,12 +1,14 @@
 define([
     'angular',
-    "uiBootstrap"
-], function (angular, uiBootstrap) {
+    "app/Includes"
+], function (angular, Includes) {
     var app = angular.module('euiv', [
         "ngRoute",
         'route-segment',
-        'view-segment',
-        "ui.bootstrap"
+        'view-segment'
     ]);
+    for (var i in Includes) {
+        app.requires.push(Includes[i]);
+    }
     return app;
 });
