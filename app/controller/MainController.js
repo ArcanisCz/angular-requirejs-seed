@@ -21,11 +21,11 @@ define([
             countries: {}
         };
 
-        $europaSave.load("TODO", function (data) {
-            console.log(data);
-            $scope.save.date = data.date;
-            $scope.save.player = data.player;
-            $scope.save.countries = data.countries;
-        });
+//        $europaSave.load("TODO", function (data) {
+//            console.log(data);
+//            $scope.save.date = data.date;
+//            $scope.save.player = data.player;
+//            $scope.save.countries = data.countries;
+//        });
     }
 });

@@ -10,7 +10,16 @@
             include: ['main']
         }
     ],
-    optimize: "uglify",
+    optimize: "uglify2",
+    uglify2: {
+        output: {
+            beautify: false
+        },
+        compress: {
+        },
+        mangle: true
+    },
+
     paths: {
         app: '../',
         nls: "../../nls",
