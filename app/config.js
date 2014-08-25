@@ -6,10 +6,10 @@ define([], function () {
             jquery: "./lib/jquery/jquery-2.1.1"
         },
         shim: {
-            'uiBootstrap': {
-                angularModuleName: "ui.bootstrap",
-                deps: ["angular"]
-            }
+//            'uiBootstrap': {
+//                angularModuleName: "ui.bootstrap",
+//                deps: ["angular"]
+//            }
         }
     };
 });

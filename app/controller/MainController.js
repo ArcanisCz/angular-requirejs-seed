@@ -1,12 +1,12 @@
 define([
     "Factory",
-    "app/controller/BaseController",
+    "core/controller/BaseController",
     "app/controller/AbstractController1",
     "app/service/EuropaSaveService"
 ], function (factory, BaseController, AbstractController1, EuropaSaveService) {
     return factory.controller('MainController', ['$scope', "$http", EuropaSaveService, function ($scope, $http, $europaSave) {
-        factory.inheritController(BaseController, $scope);
-        factory.inheritController(AbstractController1, $scope);
+        factory.inheritScope(BaseController, $scope);
+        factory.inheritScope(AbstractController1, $scope);
 
         $scope.setMsgNS("view.MainController");
         $scope.parentAaa();

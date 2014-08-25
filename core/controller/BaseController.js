@@ -1,6 +1,6 @@
 define([
     "Factory",
-    "app/service/NlsService"
+    "core/service/NlsService"
 ], function (factory, NlsService) {
     return factory.controller('AbstractController', ['$scope', NlsService, function ($scope, $nls) {
         setMessages($scope, $nls);

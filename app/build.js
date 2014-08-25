@@ -16,6 +16,7 @@
         nls: "../../nls",
         App: "../../core/App",
         Factory: "../../core/Factory",
+        core: "../../core",
 
         //libs
         main: "../../core/main",

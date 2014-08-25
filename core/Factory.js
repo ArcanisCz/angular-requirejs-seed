@@ -18,7 +18,7 @@ define([
         return name;
     }
 
-    function createInheritance(name, scope) {
+    function inheritScope(name, scope) {
         var injector = angular.injector([app.name]);
         injector.invoke(["$controller", function (controller) {
             controller(name, {$scope: scope});
@@ -29,6 +29,6 @@ define([
         controller: createController,
         directive: createDirective,
         service: createService,
-        inheritController: createInheritance
+        inheritScope: inheritScope
     };
 });
