@@ -11,7 +11,7 @@ Integration
 For integrating angular's DI and require's dependeny system, i chose different approach than ones, i have seen on web. I felt more like i want this two systems to cooperate than one abusing second.
 
 In result, i wrote simple requireJS loader plugins to coopeare with DI of angularJS. now, only thing you need to do in case of for example controller, is:
-```
+```javascript
 //LayoutController.js 
 define([
   //deps
@@ -38,7 +38,7 @@ This section contains project structure and notable features
 ## Writing Controller
 My vision of good controller is based around having controller definition as clean as possible. Important thing is to have controller composed from (reusable) parts. Normally, funcionality is done in services, which is good, but i want to encapsulate $scope structure too. which leads to example with controller and nls funcionality in it.
 
-```
+```javascript
 //controller.js
 define([
     "./NlsScope",
@@ -65,7 +65,7 @@ Objects called "scopes" are added to encapsulate $scope logic and included via d
 
 ## Services
 In controller example above, we used angular service as requireJS dependency. We can use "service!" plugin in same way, DI is used in angular. Either way, we demand our custom service from file with service factory function, or we inject some core service like $http.
-```
+```javascript
 define([
     "service!core/service/NlsService",
     "service!$http",
@@ -78,7 +78,7 @@ define([
 
 ## Layouts and views
 For layout and views, angular-route-segment (http://angular-route-segment.com/) is used. This can do things like standard layout composition and routing. More nice than angular's ng-route....
-```
+```javascript
 define([
     "./view/Layout/LayoutView",
     "./view/Home/HomeView",
@@ -98,7 +98,7 @@ define([
 });
 ```
 Basically, we want only to define structure, include our views, and then define things and dependencies in separate view files. There, we define template, controller and possible some styles, directives etc.
-```
+```javascript
 define([
     "controller!app/controller/LayoutController",
     "text!./LayoutView.html",
