@@ -1,6 +1,6 @@
 define([
-    "app/view/LayoutView",
-    "app/view/ContentView"
+    "app/view/Layout/LayoutView",
+    "app/view/Content/ContentView"
 ], function (LayoutView, ContentView) {
     return function (route, segment) {
         segment

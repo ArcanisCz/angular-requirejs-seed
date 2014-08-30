@@ -1,8 +1,7 @@
 define([
-    "app/controller/MainController",
+    "controller!app/controller/MainController",
     "text!./LayoutView.html",
-    "less!./LayoutView.less",
-    "app/component/countries/CountryFlagComponent"
+    "less!./LayoutView.less"
 ], function (MainController, template) {
     return {
         template: template,
