@@ -24,8 +24,10 @@
         app: '../',
         nls: "../../nls",
         App: "../../core/App",
-        Factory: "../../core/Factory",
         core: "../../core",
+        service: "../../core/loader/service",
+        controller: "../../core/loader/controller",
+        directive: "../../core/loader/directive",
 
         //libs
         main: "../../core/main",
