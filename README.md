@@ -117,11 +117,17 @@ Another great feature is integration of Less via require-less project (https://g
 ## Compiling
 Compiling is done by standard command "r.js -o app/build.js", which includes all javascript, html and css in one file.
 
-## Directives
-TODO (approach to use is under research)
+## Directives and Filters
+Due to need of handy directive and filter import which is sometimes not dependant of file name, there are two options. Either you can import (and angular register) filter with its file name, or "AS other name". Example below registers two filters named "MyBranNewFilter" and "my-filter" based on definition in file filter!app/filter/MyBranNewFilter.js
+```javascript
+define([
+    "filter!app/filter/MyBranNewFilter",
+    "filter!app/filter/MyBranNewFilter AS my-filter"
+], function () {
 
-## Filters
-TODO (approach to use is under research)
+});
+```
+
 
 ## Testing
 TODO (approach to use is under research)
