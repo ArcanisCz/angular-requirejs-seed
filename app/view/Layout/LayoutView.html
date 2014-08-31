@@ -1,10 +1,11 @@
 <div id="LayoutView">
     <div class="header">
         <div>
-            {{texts.hello}}
+            {{msgNS("hello")}}
             <button type="button" class="btn-xs btn btn-primary">
-                Bootstrap button
+                {{msgNS("button")}}
             </button>
+            {{msgNS("badKey")}}
         </div>
         <div>{{save.player}} - {{save.date}}</div>
     </div>

@@ -1,5 +1,10 @@
 define({
-    "root": {
-        hello: "Localized Hello!"
+    root: {
+        view: {
+            MainController: {
+                hello: "Localized Hello",
+                button: "Bootstrap Button"
+            }
+        }
     }
 })

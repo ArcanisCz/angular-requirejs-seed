@@ -1,8 +1,8 @@
 define([
-    "Factory",
-    "async"
-], function (factory, async) {
-    return  factory.service("europaSave", ["$http", function ($http) {
+    "async",
+    "service!$http"
+], function (async, $http) {
+    return  [function () {
         function loadFromHttp(saveLocation, done) {
             $http({
                 method: "GET",
@@ -24,11 +24,12 @@ define([
 
         function load(url, done) {
             loadFromHttp(url, function (data) {
-                data.date = data.date;
-                data.player = data.player;
+                var ret = {};
+                ret.date = data.date;
+                ret.player = data.player;
                 async.reduce(Object.keys(data.countries), {}, reduceCountries, function (err, result) {
-                    data.countries = result;
-                    done(data);
+                    ret.countries = result;
+                    done(ret);
                 });
             });
         }
@@ -37,5 +38,5 @@ define([
         return {
             load: load
         };
-    }])
+    }]
 });

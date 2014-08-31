@@ -10,12 +10,24 @@
             include: ['main']
         }
     ],
-    optimize: "uglify",
+    optimize: "uglify2",
+    uglify2: {
+        output: {
+            beautify: false
+        },
+        compress: {
+        },
+        mangle: true
+    },
+
     paths: {
         app: '../',
         nls: "../../nls",
         App: "../../core/App",
-        Factory: "../../core/Factory",
+        core: "../../core",
+        service: "../../core/loader/service",
+        controller: "../../core/loader/controller",
+        directive: "../../core/loader/directive",
 
         //libs
         main: "../../core/main",

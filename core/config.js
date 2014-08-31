@@ -7,7 +7,9 @@ define([
             app: './app',
             nls: "./nls",
             core: "./core",
-            Factory: "./core/Factory",
+            service: "./core/loader/service",
+            controller: "./core/loader/controller",
+            directive: "./core/loader/directive",
 
             //libs
             text: "./lib/require/text",

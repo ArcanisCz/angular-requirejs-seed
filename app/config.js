@@ -7,7 +7,6 @@ define([], function () {
         },
         shim: {
             'uiBootstrap': {
-                angularModuleName: "ui.bootstrap",
                 deps: ["angular"]
             }
         }
