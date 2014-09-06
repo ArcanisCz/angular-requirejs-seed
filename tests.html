@@ -17,17 +17,13 @@
 <body>
 
 <script type="text/javascript">
-    require([
-        'core/config'
-    ], function () {
+    require(['core/config'], function () {
         require([
+            "async",
+            "tests/tests",
             "jasmine-boot"
-        ], function(){
-            testRequire(['spec/muj-spec'], {
-                mocks: ["app/service/EuropaSaveService"]
-            }, function() {
-                window.onload();
-            });
+        ], function (async, tests) {
+            async.series(tests, window.onload);
         });
     });
 

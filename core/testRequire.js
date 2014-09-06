@@ -4,24 +4,27 @@ require([
 ], function (config) {
     (function (window) {
         var contextId = 0;
-        window.testRequire = function (moduleIds, options, callback) {
-            var toMock = options && options.mocks;
+        window.testRequire = function (moduleIds, mocks, callback) {
             var newConfig = deepExtend({}, config);
             newConfig = deepExtend(newConfig, {
                 baseUrl: './',
                 urlArgs: 'now=' + Date.now(),
-                context: 'test-context' + contextId++
+                context: 'test-context' + contextId++,
+                paths: {
+                    test: './tests/spec',
+                    helpers: './tests/helpers'
+                }
             })
 
 
             var map, context;
 
-            if (toMock) {
+            if (mocks) {
                 map = {
                     '*': {}
                 };
-                toMock.forEach(function (id) {
-                    var mockId = 'spec/mocks/' + id;
+                mocks.forEach(function (id) {
+                    var mockId = 'tests/mocks/' + id;
                     map['*'][id] = mockId;
                     map[mockId] = {};
                     map[mockId][id] = id;
@@ -33,20 +36,21 @@ require([
             return context.call(this, moduleIds, callback);
         };
     }(typeof global === 'undefined' ? this : global));
+
+
+    //we do not want load any frameworks with extend() function here (jquery, angular, ...). So we are providing
+    // some basic extend here, based on http://andrewdupont.net/2009/08/28/deep-extending-objects-in-javascript/
+    function deepExtend(destination, source) {
+        for (var property in source) {
+            if (source[property] && source[property].constructor &&
+                source[property].constructor === Object) {
+                destination[property] = destination[property] || {};
+                arguments.callee(destination[property], source[property]);
+            } else {
+                destination[property] = source[property];
+            }
+        }
+        return destination;
+    };
 });
 
-
-//we do not want load any frameworks with extend() function here (jquery, angular, ...). So we are providing
-// some basic extend here, based on http://andrewdupont.net/2009/08/28/deep-extending-objects-in-javascript/
-function deepExtend(destination, source) {
-    for (var property in source) {
-        if (source[property] && source[property].constructor &&
-            source[property].constructor === Object) {
-            destination[property] = destination[property] || {};
-            arguments.callee(destination[property], source[property]);
-        } else {
-            destination[property] = source[property];
-        }
-    }
-    return destination;
-};

@@ -11,7 +11,6 @@ define([
             mocks.module('angularSeed');
             mocks.inject(function ($rootScope) {
                 scope = $rootScope.$new();
-                console.log($rootScope, scope, done);
                 EuropaScope(scope);
                 done();
             });
