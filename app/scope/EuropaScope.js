@@ -5,16 +5,20 @@ define([
         $scope.save = {
             date: "",
             player: "",
-            countries: {},
-            aaa: "aaa"
+            countries: {}
         };
 
-        EuropaSaveService.load("TODO", function (data) {
-            console.log(data);
-            $scope.save.date = data.date;
-            $scope.save.player = data.player;
-            $scope.save.countries = data.countries;
-            $scope.$apply();
-        });
+        $scope.load = function (done) {
+            EuropaSaveService.load("TODO", function (data) {
+                console.log(data);
+                $scope.save.date = data.date;
+                $scope.save.player = data.player;
+                $scope.save.countries = data.countries;
+                $scope.$apply();
+                if(done){
+                    done();
+                }
+            });
+        }
     }
 });
