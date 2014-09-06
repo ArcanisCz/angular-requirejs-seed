@@ -14,7 +14,6 @@ define([
             //libs
             text: "./lib/require/text",
             i18n: "./lib/require/i18n",
-            less: "./lib/less/less-1.7.4",
             angular: "./lib/angular/angular",
             angularRoute: './lib/angular/angular-route',
             angularSegment: './lib/angular/angular-route-segment',
@@ -24,7 +23,11 @@ define([
             less: "./lib/require-less/less",
             lessc: "./lib/require-less/lessc",
             "less-builder": "./lib/require-less/less-builder",
-            normalize: "./lib/require-less/normalize"
+            normalize: "./lib/require-less/normalize",
+
+            jasmine: "./lib/jasmine-2.0.3/jasmine",
+            "jasmine-html": "./lib/jasmine-2.0.3/jasmine-html",
+            "jasmine-boot": "./lib/jasmine-2.0.3/boot"
         },
 
         shim: {
@@ -37,6 +40,17 @@ define([
             'angularMocks':{
                 deps: ['angular'],
                 exports:'angular.mock'
+            },
+            'jasmine': {
+                exports: 'window.jasmineRequire'
+            },
+            'jasmine-html': {
+                deps: ['jasmine'],
+                exports: 'window.jasmineRequire'
+            },
+            'jasmine-boot': {
+                deps: ['jasmine', 'jasmine-html'],
+                exports: 'window.jasmineRequire'
             }
         },
         less: {

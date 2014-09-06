@@ -1,11 +1,14 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-        "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML>
 <html>
 <head>
-    <title>Jasmine Test Runner</title>
-    <link rel="stylesheet" type="text/css" href="lib/jasmine-1.0.0/jasmine.css">
-    <script type="text/javascript" src="lib/jasmine-1.0.0/jasmine.js"></script>
-    <script type="text/javascript" src="lib/jasmine-1.0.0/jasmine-html.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Jasmine Spec Runner v2.0.3</title>
+
+    <link rel="shortcut icon" type="image/png" href="lib/jasmine-2.0.3/jasmine_favicon.png">
+    <link rel="stylesheet" type="text/css" href="lib/jasmine-2.0.3/jasmine.css">
+    <link rel="stylesheet" type="text/css" href="lib/jasmine-2.0.3/jasmine.css">
+    <script type="text/javascript" src="lib/jasmine-2.0.3/jasmine.js"></script>
+    <script type="text/javascript" src="lib/jasmine-2.0.3/jasmine-html.js"></script>
 
     <script type="text/javascript" src="../lib/require/require.js"></script>
     <script type="text/javascript" src="../core/testRequire.js"></script>
@@ -18,11 +21,12 @@
         'core/config'
     ], function () {
         require([
-            "core/MainModule"
+            "jasmine-boot"
         ], function(){
-            require(['spec/muj-spec'], function() {
-                jasmine.getEnv().addReporter(new jasmine.TrivialReporter());
-                jasmine.getEnv().execute();
+            testRequire(['spec/muj-spec'], {
+                mocks: ["app/service/EuropaSaveService"]
+            }, function() {
+                window.onload();
             });
         });
     });

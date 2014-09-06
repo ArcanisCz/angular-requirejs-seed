@@ -1,22 +1,37 @@
 define([
-    "angular",
-    "angularMocks"
-], function (angular, mock) {
-    console.log(angular, mock);
-    describe("A suite", function () {
-        beforeEach(function () {
-            mock.module('Application');
+    "core/MainModule",
+    "angularMocks",
+    "app/scope/EuropaScope"
+], function (MainModule, mocks, EuropaScope) {
+    describe("A EuropaSave", function () {
+
+        var scope = {};
+
+        beforeEach(function (done) {
+            mocks.module('angularSeed');
+            mocks.inject(function ($rootScope) {
+                scope = $rootScope.$new();
+                console.log($rootScope, scope, done);
+                EuropaScope(scope);
+                done();
+            });
         });
 
-        it("contains spec with an expectation", function () {
-            expect(true).toBe(true);
+        it("should be initialized", function () {
+            expect(scope.save).toBeDefined();
+            expect(scope.save.date).toEqual("");
+            expect(scope.save.player).toEqual("");
+            expect(scope.save.countries).toEqual({});
         });
-    });
 
 
-    describe("A suite", function () {
-        it("contains spec with an expectation", function () {
-            expect(true).toBe(true);
+        it("should load data", function (done) {
+            scope.load(function () {
+                expect(scope.save.date).toEqual("1444.9.1");
+                expect(scope.save.player).toEqual("GBR");
+                expect(scope.save.countries).toEqual({});
+                done();
+            });
         });
     });
 });
