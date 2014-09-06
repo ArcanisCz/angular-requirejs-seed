@@ -21,7 +21,8 @@
         require([
             "async",
             "tests/tests",
-            "jasmine-boot"
+            "jasmine-boot",
+             "angularMocks"
         ], function (async, tests) {
             async.series(tests, window.onload);
         });

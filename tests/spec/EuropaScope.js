@@ -1,15 +1,11 @@
 define([
-    "core/MainModule",
-    "angularMocks",
     "app/scope/EuropaScope"
-], function (MainModule, mocks, EuropaScope) {
-    describe("A EuropaSave", function () {
-
+], function (EuropaScope) {
+    return ["A EuropeScope", function () {
         var scope = {};
 
         beforeEach(function (done) {
-            mocks.module('angularSeed');
-            mocks.inject(function ($rootScope) {
+            angular.mock.inject(function ($rootScope) {
                 scope = $rootScope.$new();
                 EuropaScope(scope);
                 done();
@@ -32,7 +28,7 @@ define([
                 done();
             });
         });
-    });
+    }]
 });
 
 

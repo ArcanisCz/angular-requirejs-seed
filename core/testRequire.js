@@ -11,8 +11,9 @@ require([
                 urlArgs: 'now=' + Date.now(),
                 context: 'test-context' + contextId++,
                 paths: {
-                    test: './tests/spec',
-                    helpers: './tests/helpers'
+                    spec: './tests/spec',
+                    helpers: './tests/helpers',
+                    test: "./core/loader/test"
                 }
             })
 
