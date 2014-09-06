@@ -130,4 +130,67 @@ define([
 
 
 ## Testing
+Test are performed by Jasmine based on ideas from //http://bocoup.com/weblog/effective-unit-testing-with-amd/ at root file ./tests.html
+
+All test required are to be included in ./tests/tests.js with theese lines:
+```javascript
+define([], function () {
+    return [
+        testRequire.bind(this, ['test!spec/EuropaScope'], ["app/service/EuropaSaveService"]),
+        testRequire.bind(this, ['test!spec/EuropaSaveService'], ["$http"])
+    ];
+});
+```
+First argument are tests to be included. Second argument is list of mocks. It uses "test" loader plugin, which encapsulate test with describe(text + filename).
+
+#### Mocks
+There is possibility to mock any dependency. Simply, add it to list, and its path would be prefixed by ./tests/mocks. In this folder, you can create exact folder structure from your app where you can include mocked files. (For example, any dependency "app/service/EuropaSaveService" will be replaces for "tests/mocks/app/service/EuropaSaveService")
+
+#### Test Case
+Simple test is included below. It returns array od 2 elements. First element is description used in test description, and second is test itself.
+
+```javascript
+define([
+    "tested"
+], function (tested) {
+    return ["A Tested Item", function () {
+        it("should be defined", function () {
+            expect(tested).toBeDefined();
+        });
+    }]
+});
+```
+
+#### Testing services
+Testing of services is done by including them as dependency. While in need, you can mock its dependencies.
+
+#### Testing filters
+Testing of filters is done by including them as dependency. While in need, you can mock its dependencies.
+
+#### Testing controllers
+Testing of controllers is simple, because we split them to Scope objects. Scope object had no dependency to angular, so it can be tested as plain objects with mocked dependecies as needed. Except situations, where you need some $scope properties/methods, like $apply. In this case, you can use this pattern
+
+```javascript
+define([
+    "app/scope/EuropaScope"
+], function (EuropaScope) {
+    return ["A Tested Item", function () {
+        var scope = {};
+
+        beforeEach(function (done) {
+            angular.mock.inject(function ($rootScope) {
+                scope = $rootScope.$new();
+                EuropaScope(scope);
+                done();
+            });
+        });
+    
+        it("should be defined", function () {
+            expect(scope.save).toBeDefined();
+        });
+    }]
+});
+```
+
+#### Testing directives
 TODO (approach to use is under research)
