@@ -19,6 +19,7 @@ define([
             angularRoute: './lib/angular/angular-route',
             angularSegment: './lib/angular/angular-route-segment',
             angularView: './lib/angular/angular-view-segment',
+            angularMocks: './lib/angular/angular-mocks',
             async: "./lib/async/async",
             less: "./lib/require-less/less",
             lessc: "./lib/require-less/lessc",
@@ -30,17 +31,12 @@ define([
             'angular': {
                 exports: 'angular'
             },
-            'angularRoute': {
-                angularModuleName: "ngRoute",
-                deps: ['angular']
-            },
-            'angularSegment': {
-                angularModuleName: "route-segment",
-                deps: ['angular']
-            },
-            'angularView': {
-                angularModuleName: "view-segment",
-                deps: ['angular']
+            'angularRoute': ['angular'],
+            'angularSegment': ['angular'],
+            'angularView': ['angular'],
+            'angularMocks':{
+                deps: ['angular'],
+                exports:'angular.mock'
             }
         },
         less: {
