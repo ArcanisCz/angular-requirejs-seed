@@ -8,7 +8,7 @@ define([
             countries: {}
         };
 
-        $scope.load = function (done) {
+        $scope.save.load = function (done) {
             EuropaSaveService.load("TODO", function (data) {
                 console.log(data);
                 $scope.save.date = data.date;
