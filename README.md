@@ -162,7 +162,31 @@ define([
 ```
 
 #### Testing services
-Testing of services is done by including them as dependency. While in need, you can mock its dependencies.
+Testing of services is done by including them as dependency. While in need, you can mock its dependencies. Note that we include direct dependency not prefixed with "service!" loader plugin. Because we want factory function to create fresh instance each test.
+
+```javascript
+define([
+    "core/service/NlsService"
+], function (NlsService) {
+    var service;
+    beforeEach(function(){
+        service = new NlsService();
+    });
+
+    return [ "A NlsService", function () {
+        it("has API", function(){
+            expect(service.getMessage).toBeDefined();
+            expect(service.setNamespace).toBeDefined();
+            expect(service.getMessageNS).toBeDefined();
+        });
+
+        xit("can retrieve message by key");
+        xit("can set namespace in scope");
+        xit("can retrieve namespaced message by key");
+    }]
+});
+```
+
 
 #### Testing filters
 Testing of filters is done by including them as dependency. While in need, you can mock its dependencies.
