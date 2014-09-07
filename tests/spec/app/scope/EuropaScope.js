@@ -8,6 +8,7 @@ define([
         beforeEach(function (done) {
             angular.mock.inject(function ($rootScope) {
                 scope = $rootScope.$new();
+                plainScope = {};
                 EuropaScope(scope);
                 EuropaScope(plainScope);
                 done();

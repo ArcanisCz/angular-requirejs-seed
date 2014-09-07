@@ -1,6 +1,6 @@
 define([
     "core/scope/NlsScope",
-    "app/scope/EuropaScope",
+    "app/scope/EuropaScope"
 //    "directive!app/component/countries/CountryFlag"
 ], function (NlsScope,EuropaScope) {
     return ['$scope', function ($scope) {
@@ -8,5 +8,6 @@ define([
         EuropaScope($scope);
 
         document.title = $scope.msgNS("title");
+        $scope.save.load();
     }];
 });
