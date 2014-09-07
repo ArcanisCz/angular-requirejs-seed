@@ -2,7 +2,7 @@ define([
     "async",
     "service!$http"
 ], function (async, $http) {
-    return  [function () {
+    return  function () {
         function loadFromHttp(saveLocation, done) {
             $http({
                 method: "GET",
@@ -38,5 +38,5 @@ define([
         return {
             load: load
         };
-    }]
+    }
 });

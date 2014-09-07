@@ -1,7 +1,7 @@
 define([
     "i18n!nls/texts"
 ], function (texts) {
-    return  [function () {
+    return  function () {
 
         var cache = {};
 
@@ -36,5 +36,5 @@ define([
             setNamespace: setNamespace,
             getMessageNS: getMessageNS
         };
-    }]
+    }
 });

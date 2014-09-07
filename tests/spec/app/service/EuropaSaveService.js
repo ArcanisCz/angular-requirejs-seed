@@ -1,13 +1,25 @@
 define([
-    "service!app/service/EuropaSaveService"
+    "app/service/EuropaSaveService"
 ], function (EuropaSaveService) {
     return [ "A EuropaSaveService", function () {
+
+        var service;
+
+        beforeEach(function(){
+           service = new EuropaSaveService();
+        });
+
+        it("should have 'load' method", function () {
+            expect(service.load).toBeDefined();
+        });
+
         it("should be defined", function (done) {
-            EuropaSaveService.load("aa", function (data) {
+            service.load("aa", function (data) {
                 expect(data).toBeDefined();
                 done();
             });
         });
+
 //
 //
 //        it("should load data", function (done) {
